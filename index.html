@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lakshita Mishra · Portfolio</title>
+  <meta name="description" content="Lakshita Mishra — CSE (AIML) student. Frontend & ML mini‑projects. Open to internships and entry‑level roles." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b0d10; --card:#101419; --muted:#9aa4b2; --txt:#e6edf3; --brand:#7c5cff; --brand-2:#2dd4bf;
+      --ring: rgba(124,92,255,.5);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:linear-gradient(180deg,#0b0d10,#0b0d10 40%,#0e1116 100%);color:var(--txt);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";}
+    a{color:inherit}
+    .container{max-width:1080px;margin:0 auto;padding:24px 20px}
+    header{position:sticky;top:0;backdrop-filter:saturate(140%) blur(10px);background:rgba(11,13,16,.6);border-bottom:1px solid rgba(255,255,255,.06);z-index:50}
+    .row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    nav a{opacity:.9;text-decoration:none;margin:0 10px;padding:10px 12px;border-radius:10px}
+    nav a:hover{background:rgba(255,255,255,.06)}
+    .btn{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#fff;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:600;box-shadow:0 6px 24px rgba(124,92,255,.35);transition:.2s}
+    .btn:hover{transform:translateY(-1px)}
+    .btn.ghost{background:transparent;box-shadow:none;border:1px solid rgba(255,255,255,.18)}
+    .btn.tag{background:rgba(124,92,255,.15);color:#dcd7ff;box-shadow:none;border:1px solid rgba(124,92,255,.35)}
+    .hero{display:grid;grid-template-columns:1.2fr .9fr;gap:28px;align-items:center;padding:40px 0}
+    .hero h1{font-size:clamp(28px,4.8vw,56px);line-height:1.05;margin:6px 0 12px}
+    .hero p{color:var(--muted);font-size:clamp(14px,1.8vw,18px)}
+    .meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+    .avatar{width:220px;height:220px;border-radius:30px;overflow:hidden;border:1px solid rgba(255,255,255,.08);box-shadow:0 10px 40px rgba(124,92,255,.25)}
+    .avatar img{width:140%;height:140%;object-fit:cover; transform: translate(-14%, -14%);}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+    .stat{background:var(--card);border:1px solid rgba(255,255,255,.06);padding:16px;border-radius:16px;text-align:center}
+    .stat b{font-size:22px}
+    section{padding:36px 0}
+    .section-head h2{font-size:28px;margin:0 0 6px}
+    .section-head .muted{color:var(--muted)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);padding:18px;border-radius:16px}
+    .card h3{margin:0 0 6px;font-size:20px}
+    .card p{margin:0 0 12px;color:var(--muted)}
+    .tags{display:flex;flex-wrap:wrap;gap:8px}
+    .tag{display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.12);padding:6px 10px;border-radius:999px;font-size:12px;background:rgba(255,255,255,.04)}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .timeline{display:grid;gap:14px}
+    .t-item{background:var(--card);border:1px solid rgba(255,255,255,.06);padding:16px;border-radius:16px}
+    .muted{color:var(--muted)}
+    footer{padding:36px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,.06)}
+    .spacer{height:10px}
+    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .chip{display:inline-flex;align-items:center;gap:6px;padding:8px 10px;background:rgba(45,212,191,.15);border:1px solid rgba(45,212,191,.45);border-radius:999px;color:#d7fffb;font-weight:600}
+    .reveal{opacity:0;transform:translateY(8px);transition:all .6s ease}
+    .reveal.show{opacity:1;transform:none}
+    .contact-card{display:grid;gap:10px}
+    .contact-card input,.contact-card textarea{width:100%;padding:12px 14px;border-radius:12px;background:#0f1318;border:1px solid rgba(255,255,255,.1);color:#fff}
+    .contact-card textarea{min-height:120px}
+    .stack{display:flex;flex-wrap:wrap;gap:8px}
+
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr;}
+      .cards{grid-template-columns:1fr}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .grid-2{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container row">
+      <strong style="letter-spacing:.3px">Lakshita<span style="color:var(--brand-2)">.</span></strong>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#edu">Education</a>
+        <a href="#certs">Certifications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <div class="chip">CSE (AIML) · Gandhi Engineering College</div>
+        <h1>Hi, I’m Lakshita Mishra</h1>
+        <p>Frontend tinkerer and ML beginner. I build clean, responsive UIs and small CV/ML experiments. Looking for internships & entry‑level roles.</p>
+        <div class="meta">
+          <a class="btn" href="https://github.com/laxita05" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/lakshitamishra05" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="mailto:mishralaxita2020@gmail.com">Email</a>
+          <a class="btn" href="RESUME.pdf" download>Download Resume</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>Student</b><div class="muted">Status</div></div>
+          <div class="stat"><b>7+</b><div class="muted">Repos</div></div>
+          <div class="stat"><b>3+</b><div class="muted">Tech Stacks</div></div>
+          <div class="stat"><b>2</b><div class="muted">Certifications</div></div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center">
+        <div class="avatar"><img alt="Lakshita" src="mee.jpg"></div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <div class="muted">Things I’ve shipped recently</div>
+      </div>
+      <div class="cards">
+        <article class="card reveal">
+          <h3>Amazon Landing Page Clone</h3>
+          <p>Responsive static front page inspired by Amazon with grid sections and hover interactions.</p>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span></div>
+          <div class="cta">
+            <a class="btn" href="https://laxita05.github.io/Amazon-_Clone/" target="_blank" rel="noopener">Live →</a>
+            <a class="btn ghost" href="https://github.com/laxita05/Amazon-_Clone" target="_blank" rel="noopener">Code</a>
+          </div>
+        </article>
+        <article class="card reveal">
+          <h3>Face Detection (Real‑Time)</h3>
+          <p>OpenCV Haar Cascade detects faces from webcam feed; grayscale pre‑processing and multi‑scale detection.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">Haar Cascade</span></div>
+          <div class="cta">
+            <a class="btn ghost" href="https://github.com/laxita05/FACE_DETECTION" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </article>
+        <article class="card reveal">
+          <h3>Tic Tac Toe (CLI)</h3>
+          <p>Two‑player console game with dictionary‑based board, input validation, win detection, and replay loop.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">CLI</span></div>
+          <div class="cta">
+            <a class="btn ghost" href="https://github.com/laxita05/TicTacToe" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </article>
+        <article class="card reveal">
+          <h3>Customer Churn Prediction</h3>
+          <p>EDA → feature prep → model training to predict churn; tracked metrics and insights.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">scikit‑learn</span></div>
+          <div class="cta">
+            <a class="btn ghost" href="https://github.com/laxita05/Customer-Churn-Prediction" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-head"><h2>Skills</h2><div class="muted">My current toolbox</div></div>
+      <div class="grid-2">
+        <div class="card reveal">
+          <h3>Core</h3><div class="spacer"></div>
+          <div class="stack">
+            <span class="tag">Python</span><span class="tag">C++</span><span class="tag">JavaScript</span>
+            <span class="tag">DSA</span><span class="tag">OOP</span>
+          </div>
+        </div>
+        <div class="card reveal">
+          <h3>Frontend</h3><div class="spacer"></div>
+          <div class="stack">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Responsive UI</span><span class="tag">Accessibility</span>
+          </div>
+        </div>
+        <div class="card reveal">
+          <h3>Backend & Data</h3><div class="spacer"></div>
+          <div class="stack">
+            <span class="tag">Pandas</span><span class="tag">scikit‑learn</span><span class="tag">Flask (learning)</span><span class="tag">SQLite</span>
+          </div>
+        </div>
+        <div class="card reveal">
+          <h3>Tools</h3><div class="spacer"></div>
+          <div class="stack">
+            <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">VS Code</span><span class="tag">Linux</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="edu">
+      <div class="section-head"><h2>Education & Activities</h2><div class="muted">Where I’m learning and contributing</div></div>
+      <div class="timeline">
+        <div class="t-item reveal">
+          <h3>B.Tech, CSE (AIML) · Gandhi Engineering College</h3>
+          <div class="muted">Nov 2022 — Present · Bhubaneswar</div>
+          <p>Practice across DS/Algo, AI/ML basics, and full‑stack fundamentals.</p>
+        </div>
+        <div class="t-item reveal">
+          <h3>IETE · Member</h3>
+          <div class="muted">Sep 2022 — Present</div>
+          <p>Networking, pro‑dev sessions, and college tech events.</p>
+        </div>
+        <div class="t-item reveal">
+          <h3>Robotics Club · Member</h3>
+          <div class="muted">Jul 2023 — Present</div>
+          <p>Collaborated with peers, explored robotics workflows, and team coordination.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="certs">
+      <div class="section-head"><h2>Certifications</h2><div class="muted">Verified learning</div></div>
+      <div class="grid-2">
+        <div class="card reveal">
+          <h3>AI/ML Training — Internshala</h3>
+          <div class="muted">Jun 2024 — Aug 2024</div>
+          <p>Covered ML algorithms and neural network basics with hands‑on projects.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Front End Development — Web Dev (GEC)</h3>
+          <div class="muted">Dec 2024</div>
+          <p>HTML, CSS, JavaScript, Bootstrap, React; built responsive components and pages.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-head"><h2>Contact</h2><div class="muted">Let’s build something</div></div>
+      <div class="grid-2">
+        <div class="card contact-card reveal">
+          <input aria-label="name" placeholder="Your name" />
+          <input aria-label="email" type="email" placeholder="Your email" />
+          <textarea aria-label="message" placeholder="Say hello (what do you want to build?)"></textarea>
+          <a class="btn" href="mailto:mishralaxita2020@gmail.com?subject=Hello%20Lakshita&body=Hi%20Lakshita%2C%20">Send Email</a>
+          <small class="muted">Using mailto for now — connect Formspree/EmailJS or a backend later.</small>
+        </div>
+        <div class="card reveal">
+          <h3>Quick Links</h3>
+          <div class="spacer"></div>
+          <div class="stack">
+            <a class="btn tag" href="https://github.com/laxita05" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn tag" href="https://www.linkedin.com/in/lakshitamishra05" target="_blank" rel="noopener">LinkedIn</a>
+            <span class="tag">Bhubaneswar, Odisha</span>
+            <span class="tag">India</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="y"></span> Lakshita Mishra · Built with HTML/CSS/JS</div>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show'); });
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
